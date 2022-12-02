@@ -89,11 +89,26 @@ Write a function called dice; it should randomize an integer number between 1 an
 
 */
 
+function dice(){
+    return Math.floor(Math.random()*6)+1; //*7 alone would allow 0s, this instead gets 0-5 and adding one gets you the desired result 1-6
+}
+
+console.log("1.", dice());
+
 /* EXERCISE 2
 
 Write a function called whoIsBigger which receives 2 numbers as parameters and returns the biggest one.
 
 */
+function whoIsBigger(num1,num2){
+    if (num1>num2){
+        return num1;
+    } else{
+        return num2;
+    }m
+}
+
+console.log("2.", whoIsBigger(5,4), whoIsBigger(-4,-2))
 
 /* EXERCISE 3
 
@@ -102,6 +117,12 @@ Write a function called splitMe which receives a string as a parameter and retur
 Ex.: splitMe("I love coding") => returns ["I", "Love", "Coding"]
 
 */
+function splitMe(string){
+    let array = string.split(' ');
+    return array;
+}
+
+console.log("3.",splitMe("one two three four"))
 
 /* EXERCISE 4
 
@@ -111,6 +132,17 @@ If the boolean value is true it should return the string without the first lette
 
 */
 
+function deleteOne(string, bool){
+    if(bool){
+        return string.substring(1);
+    }else{
+        return string.substring(0,string.length-1);
+    }
+}
+console.log("4.");
+console.log(deleteOne("Test String",true));
+console.log(deleteOne("Test String",false));
+
 /* EXERCISE 5
 
 Write a function called onlyLetters which receives a string as a parameter and returns it removing all the digits.
@@ -119,17 +151,54 @@ Ex.: onlyLetters("I have 4 dogs") => returns "I have dogs"
 
 */
 
+function onlyLetters(string){ //I tried a few things here. using isNaN removed all non numbers including spaces and using parseInt just made everything a number so I settled on this ascii solution.
+    let tempString="";
+    for(i=0;i<string.length;i++){
+        if(string.charAt(i)>='0'&&string.charAt(i)<='9'){
+        }
+        else{
+            tempString+= string.charAt(i);
+        }
+    }
+    return tempString;
+}
+
+console.log("5.",onlyLetters("Word 912312 Wo91r1231d"));
 /* EXERCISE 6
 
 Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 
 */
+function isThisAnEmail(string){ //regex checks that it begins, has no whitespace, has an @, no white space, a . no white space and ends, there's more complicated ones but for this example this is fine.
+    let re = /^\S+@\S+\.\S+$/;
+    return re.test(string);
+}
 
+console.log("6.",isThisAnEmail("barry@gmail.com"))
 /* EXERCISE 7
 
 Write a function called whatDayIsIt that should return the current day of the week.
 
 */
+function whatDayIsIt(){
+    const d = new Date();
+    if(d.getDay()===0){
+        return "Sunday";
+    }else if(d.getDay()===1){
+        return "Monday";
+    }else if(d.getDay()===2){
+        return "Tuesday";
+    }else if(d.getDay()===3){
+        return "Wednesday";
+    }else if(d.getDay()===4){
+        return "Thursday";
+    }else if(d.getDay()===5){
+        return "Friday";
+    }else{
+        return "Saturday";
+    } 
+}
+console.log("7.", whatDayIsIt())
 
 /* EXERCISE 8
 
@@ -150,6 +219,23 @@ values: [3, 3, 4]
 }
 
 */
+function rollTheDices(n){
+    let tempArray = [];
+    let tempNumber;
+    let total=0;
+    for(i=0;i<n;i++){
+        tempNumber = dice();
+        tempArray.push(tempNumber);
+        total+=tempNumber;
+    }
+    let returnObject = {
+        sum: total,
+        values: tempArray
+    }
+    return returnObject;
+}
+
+console.log("8.",rollTheDices(4));
 
 /* EXERCISE 9
 
@@ -157,14 +243,26 @@ Write a function called howManyDays which receives a date as a parameter and ret
 
 */
 
+function howManyDays(date){
+    
+}
+
+console.log("9.")
+
 /* EXERCISE 10
 
 Write a function called isTodayMyBirthday which should return true if today’s your birthday, false otherwise.
 
 */
 
-// JS Arrays & Objects
+function isTodayMyBirthday(){
 
+}
+
+console.log("10.")
+
+// JS Arrays & Objects
+console.log("-----JS Arrays & Objects-----")
 // NOTE: the movies array used in some exercises is defined at the end of this file
 
 /* EXERCISE 11
@@ -174,30 +272,53 @@ Write a function called deleteProp which receives an object and a string as para
 and returns the given object after deleting its property named as the given string.
 
 */
+function deleteProp(object,string){
+
+}
+
+console.log("11.")
 
 /* EXERCISE 12
 
 Write a function called oldestMovie which finds the oldest movie in the provided movies array.
 
 */
+function oldestMovie(){
 
+}
+
+console.log("12.")
 /* EXERCISE 13
 
 Write a function called countMovies which returns the number of movies contained in the provided movies array.
 
 */
+function countMovies(){
+
+}
+
+console.log("13.")
 
 /* EXERCISE 14
 
 Write a function called onlyTheTitles which creates an array with just the titles of the movies contained in the provided movies array.
 
 */
+function onlyTheTitles(){
 
+}
+
+console.log("14.")
 /* EXERCISE 15
 
 Write a function called onlyInThisMillennium which returns only the movies produced in this millennium from the provided movies array.
 
 */
+function onlyInThisMillenium(){
+
+}
+
+console.log("15.")
 
 /* EXERCISE 16
 
@@ -205,17 +326,35 @@ Write a function called getMovieById which receives an id as a parameter and ret
 
 */
 
+function getMovieByID(id){
+
+}
+
+console.log("16.")
+
 /* EXERCISE 17
 
 Write a function called sumAllTheYears which returns the sum of all the years in which the movies in the provided movies array have been produced.
 
 */
 
+function sumAllTheYears(string){
+
+}
+
+console.log("17.")
+
 /* EXERCISE 18
 
 Write a function called searchByTitle which receives a string as a parameter and returns all the movies in the provided movies array which contain that string in the title.
 
 */
+
+function searchByTitle(string){
+
+}
+
+console.log("18.")
 
 /* EXERCISE 19
 
@@ -227,14 +366,25 @@ and another array unmatch with all the remaining ones.
 
 */
 
+function searchAndDrive(string){
+
+}
+
+console.log("19.")
+
 /* EXERCISE 20
 
 Write a function called "removeIndex" which receives a number as a parameter and returns the provided movies array without the element in the given position.
 
 */
+function removeIndex(n){
+
+}
+
+console.log("20.")
 
 // [EXTRAS] JS Advanced
-
+console.log("-----JS Advanced-----")
 /* EXERCISE 21
 
 Create a function called "halfTree" which receives a number as a parameter and builds an "*" half tree with the given height.
@@ -250,6 +400,12 @@ halfTree(3)
 ***
 
 */
+
+function halfTree(n){
+
+}
+
+console.log("21.")
 
 /* EXERCISE 22
 
@@ -267,11 +423,23 @@ tree(3)
 
 */
 
+function tree(n){
+
+}
+
+console.log("22.")
+
 /* EXERCISE 23
 
 Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
 
 */
+
+function isItPrime(n){
+
+}
+
+console.log("23.")
 
 /* WHEN YOU ARE FINISHED
 
