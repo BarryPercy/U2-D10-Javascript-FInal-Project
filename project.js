@@ -729,8 +729,8 @@ tree(3)
 
 function tree(n){
     let tempArray=[];
-    let numberOfSpaces = n-1;
-    let numberOfStars = 1;
+    let numberOfSpaces = n-1; //first line will have number of elements = to the size of the tree, the last element being the *
+    let numberOfStars = 1; //number of Stars will increase by 2 each time.()
     for(i=1;i<n+1;i++){
         for(j=0;j<numberOfSpaces;j++){
             process.stdout.write(" ");
