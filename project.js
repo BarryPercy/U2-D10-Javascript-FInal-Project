@@ -576,7 +576,7 @@ function onlyInThisMillenium(){
     let movieArray=[];
     for(i=0;i<movies.length;i++){
         if(parseInt(movies[i].Year)>=2000){
-            movieArray.push(movies[i].Title);
+            movieArray.push(movies[i]);
         }
     }
     return movieArray;
@@ -593,13 +593,13 @@ Write a function called getMovieById which receives an id as a parameter and ret
 function getMovieByID(id){
     for(i=0;i<movies.length;i++){
         if(movies[i].imdbID===id){ 
-            return movies[i].Title;
+            return movies[i];
         }
     }
     return "id not found";
 }
 
-console.log("16.",getMovieByID("abc"))
+console.log("16.",getMovieByID("tt0167260"))
 
 /* EXERCISE 17
 
@@ -627,7 +627,7 @@ function searchByTitle(string){
     let movieArray=[];
     for(i=0;i<movies.length;i++){
         if(movies[i].Title.toLowerCase().includes(string.toLowerCase())){
-            movieArray.push(movies[i].Title);
+            movieArray.push(movies[i]);
         }
     }
     return movieArray;
@@ -649,7 +649,7 @@ function searchByNotTitle(string){
     for(i=0;i<movies.length;i++){
         if(movies[i].Title.toLowerCase().includes(string.toLowerCase())){
         }else{
-            movieArray.push(movies[i].Title);
+            movieArray.push(movies[i]);
         }
     }
     return movieArray;
@@ -657,8 +657,8 @@ function searchByNotTitle(string){
 function searchAndDivide(string){
     
     let object = {
-        match:[searchByTitle(string)],
-        unmatch:[searchByNotTitle(string)]
+        match:searchByTitle(string),
+        unmatch:searchByNotTitle(string)
     }
     return object;
 }
